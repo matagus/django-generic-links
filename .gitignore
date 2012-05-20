@@ -2,3 +2,7 @@
 *.pot
 *.pyc
 local_settings.py
+TODO
+build/
+dist/
+django_generic_links.egg-info/
