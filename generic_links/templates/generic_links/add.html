@@ -1,0 +1,7 @@
+{# You should extend it from site_base.html or some other template using {% extends 'site_base.html' %} by instance #}
+{% load i18n %}
+<h2>{% trans "Add link to "%} <strong>{{ object }}</strong></h2>
+<form action="{% url generic_links.views.add_link app_model,object.id %}" method="POST">
+    {{ form }}
+    <button type="submit">{% trans "Save" %}</button>
+</form>
