@@ -1,7 +1,18 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
+from django.contrib.contenttypes import generic
 
 from generic_links.models import GenericLink
+
+
+class GenericLinkStackedInline(generic.GenericStackedInline):
+    model = GenericLink
+    extra = 1
+
+
+class GenericLinkTabularInline(generic.GenericTabularInline):
+    model = GenericLink
+    extra = 1
 
 
 class GenericLinkAdmin(admin.ModelAdmin):
