@@ -12,7 +12,7 @@ setup(
     keywords='django apps links generic',
     author='Matías Agustín Méndez',
     author_email='matagus@gmail.com',
-    url='https://github.com/matagus/django-generice-links',
+    url='http://matagus.github.com/django-generic-links/',
     packages=['generic_links', 'generic_links.templatetags', ],
     tests_require=['django>=1.2,<1.5', ],
     test_suite='runtests.runtests',
