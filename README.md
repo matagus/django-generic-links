@@ -62,6 +62,31 @@ his last.fm profile, his youtube artist page and the like:
 
 ```
 
+Generic Links admin
+--------------------------------------------------------------------------------
+
+Since a GenericLink instnace will be associated to another object you usally
+wish to show an inline model admin form in that model form. 
+
+
+``` python
+# this is your app's admin.py
+from django.contrib import admin
+
+from generic_links.admin import GenericLinkStackedInline
+
+from my_app.models import MyModel
+
+
+class MyModelAdmin(admin.ModelAdmin):
+    # ...
+    inlines = [GenericLinkStackedInline]
+    # ...
+
+
+admin.site.register(MyModel, MyModelAdmin)
+```
+
 Using django-generic-links templatetags
 --------------------------------------------------------------------------------
 
