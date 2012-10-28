@@ -12,13 +12,14 @@ register = template.Library()
 
 class RelatedLinksNode(template.Node):
 
-    def __init__(self, context_var, obj):
+    def __init__(self, context_var, obj, is_external):
         self.context_var = context_var
         self.obj_var = template.Variable(obj)
+        self.is_external = is_external
 
     def render(self, context):
         obj = self.obj_var.resolve(context)
-        context[self.context_var] = utils.get_links_for(obj).select_related("user")
+        context[self.context_var] = utils.get_links_for(obj).select_related("user").filter(is_external=self.is_external)
         return u""
 
 
@@ -34,9 +35,4 @@ def get_links_for(parser, token):
         message = "'%s' tag requires three arguments" % bits[0]
         raise template.TemplateSyntaxError(message)
 
-    return RelatedLinksNode(bits[3], bits[1])
-
-"""
-Usage: {% get_links_for <obj> owned by <user> as <some_var> %}
-Usage: {% get_external_links_for <obj> owned by <user> as <some_var> %}
-"""
+    return RelatedLinksNode(bits[3], bits[1], True)
