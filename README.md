@@ -127,3 +127,7 @@ License
 
 `django-generic-links` is released under an BSD License - see the `LICENSE` file
 for more information.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/matagus/django-generic-links/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
