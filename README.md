@@ -23,9 +23,9 @@ then add `generic_links` to your `settings.py`:
     )
 ```
 
-and syncronize your database!
+and then run the migrations!
 
-    # python manage.py syncdb
+    # python manage.py migrate
 
 
 Using django-generic-links models
