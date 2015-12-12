@@ -14,7 +14,7 @@ setup(
     author_email='matagus@gmail.com',
     url='http://matagus.github.com/django-generic-links/',
     packages=['generic_links', 'generic_links.templatetags', 'generic_links.migrations', ],
-    tests_require=['django>=1.6,<1.9', ],
+    tests_require=['django>=1.8,<1.10', ],
     test_suite='runtests.runtests',
     include_package_data=True,
     zip_safe=False,
