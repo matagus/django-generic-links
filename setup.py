@@ -14,7 +14,7 @@ setup(
     author_email='matagus@gmail.com',
     url='http://matagus.github.com/django-generic-links/',
     packages=['generic_links', 'generic_links.templatetags', 'generic_links.migrations', ],
-    tests_require=['django>=1.2,<1.5', ],
+    tests_require=['django>=1.8,<1.10', ],
     test_suite='runtests.runtests',
     include_package_data=True,
     zip_safe=False,
@@ -26,7 +26,7 @@ setup(
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        "Programming Language :: Python :: 2.5",
+        "Programming Language :: Python :: 2.7",
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
 )

@@ -1,6 +1,8 @@
 django-generic-links - Attach links to any Django model
 ================================================================================
 
+The latest version of django-generic-links requires Django >= 1.8. If you want
+to use it with Dajngo < 1.8 please install a 0.3.x version.
 
 Installation
 --------------------------------------------------------------------------------
@@ -23,9 +25,9 @@ then add `generic_links` to your `settings.py`:
     )
 ```
 
-and syncronize your database!
+and then run the migrations!
 
-    # python manage.py syncdb
+    # python manage.py migrate
 
 
 Using django-generic-links models

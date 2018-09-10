@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 from django import VERSION
 from django.conf import settings
-from django.contrib.contenttypes import generic
+from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
@@ -24,7 +24,7 @@ class GenericLink(models.Model):
 
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField(db_index=True)
-    content_object = generic.GenericForeignKey()
+    content_object = GenericForeignKey()
 
     url = models.URLField()
     title = models.CharField(max_length=200)
