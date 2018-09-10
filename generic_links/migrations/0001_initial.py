@@ -23,8 +23,8 @@ class Migration(migrations.Migration):
                 ('description', models.TextField(max_length=1000, null=True, blank=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True, db_index=True)),
                 ('is_external', models.BooleanField(default=True, db_index=True)),
-                ('content_type', models.ForeignKey(to='contenttypes.ContentType')),
-                ('user', models.ForeignKey(blank=True, to=settings.AUTH_USER_MODEL, null=True)),
+                ('content_type', models.ForeignKey(to='contenttypes.ContentType', on_delete=models.CASCADE)),
+                ('user', models.ForeignKey(blank=True, to=settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)),
             ],
             options={
                 'ordering': ('-created_at',),

@@ -22,7 +22,7 @@ class GenericLink(models.Model):
     Relates an object with an url and its data
     """
 
-    content_type = models.ForeignKey(ContentType)
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField(db_index=True)
     content_object = GenericForeignKey()
 
@@ -30,7 +30,8 @@ class GenericLink(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(max_length=1000, null=True, blank=True)
 
-    user = models.ForeignKey(get_user_model_fk_ref(), null=True, blank=True)
+    user = models.ForeignKey(get_user_model_fk_ref(), null=True, blank=True,
+                             on_delete=models.SET_NULL)
     created_at = models.DateTimeField(auto_now_add=True, db_index=True)
 
     is_external = models.BooleanField(default=True, db_index=True)
