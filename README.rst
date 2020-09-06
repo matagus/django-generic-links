@@ -2,21 +2,12 @@
 django-generic-links
 =============================
 
-.. image:: https://badge.fury.io/py/generic_links.svg
-    :target: https://badge.fury.io/py/generic_links
-
-.. image:: https://travis-ci.org/matagus/generic_links.svg?branch=master
-    :target: https://travis-ci.org/matagus/generic_links
-
-.. image:: https://codecov.io/gh/matagus/generic_links/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/matagus/generic_links
-
- Simple and generic application for Django projects to attach and handle links for any object
+Simple and generic application for Django projects to attach and handle links for any object
 
 Documentation
 -------------
 
-The full documentation is at https://generic_links.readthedocs.io.
+The full documentation is at https://matagus.alameda.dev/django-generic-links/.
 
 Quickstart
 ----------
