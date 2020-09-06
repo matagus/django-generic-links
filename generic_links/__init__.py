@@ -1,5 +1,3 @@
 # -*- coding: UTF-8 -*-
 
-
-def get_version():
-    return "0.6.0"
+__version__ = '0.6.0'
