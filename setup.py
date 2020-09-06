@@ -46,13 +46,13 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 requirements = open('requirements.txt').readlines()
 
 setup(
-    name='generic_links',
+    name='django-generic-links',
     version=version,
     description=""" Simple and generic application for Django projects to attach and handle links for any object""",
     long_description=readme + '\n\n' + history,
     author='Matias Agustin Mendez',
     author_email='matagus@gmail.com',
-    url='https://github.com/matagus/generic_links',
+    url='https://github.com/matagus/django-generic-links',
     packages=[
         'generic_links',
     ],
