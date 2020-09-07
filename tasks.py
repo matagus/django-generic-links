@@ -44,19 +44,6 @@ def coverage(c):
 
 
 @task
-def docs(c):
-    """
-    Build the documentation and open it in the browser
-    """
-    c.run("rm -f docs/generic_links.rst")
-    c.run("rm -f docs/modules.rst")
-    c.run("sphinx-apidoc -o docs/ generic_links")
-
-    c.run("sphinx-build -E -b html docs docs/_build")
-    open_browser(path='docs/_build/html/index.html')
-
-
-@task
 def test_all(c):
     """
     Run tests on every python version with tox

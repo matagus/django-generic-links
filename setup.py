@@ -41,15 +41,15 @@ if sys.argv[-1] == 'tag':
     os.system("git push --tags")
     sys.exit()
 
-readme = open('README.rst').read()
-history = open('HISTORY.rst').read().replace('.. :changelog:', '')
+readme = open('README.md').read()
 requirements = open('requirements.txt').readlines()
 
 setup(
     name='django-generic-links',
     version=version,
     description=""" Simple and generic application for Django projects to attach and handle links for any object""",
-    long_description=readme + '\n\n' + history,
+    long_description=readme,
+    long_description_content_type='text/markdown',
     author='Matias Agustin Mendez',
     author_email='matagus@gmail.com',
     url='https://github.com/matagus/django-generic-links',
