@@ -7,3 +7,5 @@ build/
 dist/
 django_generic_links.egg-info/
 generic_links.egg-info/
+.tox
+.coverage
