@@ -23,4 +23,3 @@ class AddLinkForm(forms.ModelForm):
             is_external=self.cleaned_data["is_external"])
 
         return self.instance
-
