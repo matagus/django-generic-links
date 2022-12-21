@@ -19,7 +19,8 @@ class RelatedLinksNode(template.Node):
 
     def render(self, context):
         obj = self.obj_var.resolve(context)
-        context[self.context_var] = utils.get_links_for(obj).select_related("user").filter(is_external=self.is_external)
+        context[self.context_var] = utils.get_links_for(obj)\
+            .select_related("user").filter(is_external=self.is_external)
         return u""
 
 

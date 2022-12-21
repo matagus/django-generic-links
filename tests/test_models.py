@@ -10,8 +10,6 @@ Tests for `generic_links` models module.
 
 from django.test import TestCase
 
-from generic_links import models
-
 
 class TestGeneric_links(TestCase):
 
