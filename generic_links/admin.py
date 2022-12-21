@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+from __future__ import annotations
+
 from django.contrib import admin
 from django.contrib.contenttypes import admin as ct_admin
 
@@ -18,6 +19,9 @@ class GenericLinkTabularInline(ct_admin.GenericTabularInline):
 @admin.register(GenericLink)
 class GenericLinkAdmin(admin.ModelAdmin):
     list_display = ("title", "url", "description", "created_at", "user", "is_external")
-    search_fields = ('title', 'url', 'user')
-    list_filter = ('is_external', 'created_at', )
-    raw_id_fields = ('user', )
+    search_fields = ("title", "url", "user")
+    list_filter = (
+        "is_external",
+        "created_at",
+    )
+    raw_id_fields = ("user",)

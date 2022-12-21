@@ -30,10 +30,10 @@ Installing `django-generic-links` is fairly easy. You can...
 then add `generic_links` to your `settings.py`:
 
 ``` python
-    INSTALLED_APPS = (
-        # ...
-        'generic_links',
-    )
+INSTALLED_APPS = (
+    # ...
+    "generic_links",
+)
 ```
 
 and then run the migrations!
