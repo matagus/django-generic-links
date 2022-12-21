@@ -1,7 +1,8 @@
-# -*- coding: utf-8 -*-
 """
 Several usefull template tags!
 """
+from __future__ import annotations
+
 from django import template
 
 from generic_links import utils
@@ -11,7 +12,6 @@ register = template.Library()
 
 
 class RelatedLinksNode(template.Node):
-
     def __init__(self, context_var, obj, is_external):
         self.context_var = context_var
         self.obj_var = template.Variable(obj)
@@ -19,9 +19,12 @@ class RelatedLinksNode(template.Node):
 
     def render(self, context):
         obj = self.obj_var.resolve(context)
-        context[self.context_var] = utils.get_links_for(obj)\
-            .select_related("user").filter(is_external=self.is_external)
-        return u""
+        context[self.context_var] = (
+            utils.get_links_for(obj)
+            .select_related("user")
+            .filter(is_external=self.is_external)
+        )
+        return ""
 
 
 @register.tag
