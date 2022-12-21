@@ -1,7 +1,7 @@
 django-generic-links
 ====================
 
-Simple app to attach links to any Django model. Compatible with Django 1.1x, 2.x and 3.x :)
+Simple app to attach links to any Django model. Compatible with Django 4+ and Python 3.9+
 
 ![](docs/images/admin.png)
 
