@@ -19,7 +19,7 @@ class GenericLinkTabularInline(ct_admin.GenericTabularInline):
 @admin.register(GenericLink)
 class GenericLinkAdmin(admin.ModelAdmin):
     list_display = ("title", "url", "description", "created_at", "user", "is_external")
-    search_fields = ("title", "url", "user")
+    search_fields = ("title", "url", "user__username")
     list_filter = (
         "is_external",
         "created_at",
