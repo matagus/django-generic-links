@@ -88,8 +88,6 @@ Development commands
 --------------------
 
     pip install -r requirements_dev.txt
-    invoke -l
-
 
 
 Want to help?
