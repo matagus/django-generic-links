@@ -10,3 +10,4 @@ generic_links.egg-info/
 .tox
 .coverage
 project/
+htmlcov/
