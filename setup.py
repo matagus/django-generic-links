@@ -43,7 +43,6 @@ if sys.argv[-1] == "tag":
     sys.exit()
 
 readme = open("README.md").read()
-requirements = open("requirements.txt").readlines()
 
 setup(
     name="django-generic-links",
@@ -58,7 +57,7 @@ setup(
         "generic_links",
     ],
     include_package_data=True,
-    install_requires=requirements,
+    install_requires=["Django>=4.0"],
     license="BSD",
     zip_safe=False,
     keywords="generic_links",
