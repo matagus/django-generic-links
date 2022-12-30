@@ -38,12 +38,10 @@ repos:
     - .:example:src
     - --add-import
     - 'from __future__ import annotations'
-- repo: https://github.com/PyCQA/flake8
-  rev: 6.0.0
+- repo: https://github.com/charliermarsh/ruff-pre-commit
+  # Ruff version.
+  rev: v0.0.201
   hooks:
-  - id: flake8
-    additional_dependencies:
-    - flake8-bugbear
-    - flake8-comprehensions
-    - flake8-tidy-imports
-    - flake8-typing-imports
+    - id: ruff
+      # Respect `exclude` and `extend-exclude` settings.
+      args: ["--force-exclude"]
