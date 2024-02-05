@@ -1,0 +1,76 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "django-generic-links"
+dynamic = ["version"]
+description = "Simple and generic application for Django projects to attach and handle links for any object"
+readme = "README.md"
+license = "BSD-3-clause"
+authors = [
+    { name = "Matias Agustin Mendez", email = "matagus@gmail.com" },
+]
+keywords = [
+    "generic links", "django", "links", "urls", "generic app",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: Django",
+    "Framework :: Django :: 4.0",
+    "Framework :: Django :: 4.1",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries",
+]
+dependencies = [
+    "Django>=4.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/matagus/django-generic-links"
+Issues = "https://.github.com/matagus/django-generic-links/issues"
+Repository = "https://github.com/matagus/django-generic-links"
+Changelog = "https://githib.com/matagus/django-generic-links/releases"
+Pypi = "https://pypi.org/project/django-generic-links"
+
+[tool.hatch.version]
+path = "generic_links/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "generic_links/",
+]
+
+[tool.hatch.build.targets.wheel]
+include = [
+    "generic_links/",
+]
+
+# Test environment
+[[tool.hatch.envs.test.matrix]]
+python = ["3.9", "3.10", "3.11"]
+django = ["4.1", "4.2"]
+
+[[tool.hatch.envs.test.matrix]]
+python = ["3.11", "3.12"]
+django = ["4.2", "5.0"]
+
+[tool.hatch.envs.test]
+dependencies = ["coverage[toml]", "django~={matrix:django}.0"]
+
+[tool.hatch.envs.test.scripts]
+test = "python -m django test --settings tests.settings"
+test-cov = "coverage run -m django test --settings tests.settings"
+cov-report = ["coverage combine", "coverage report"]
+cov = ["test-cov", "cov-report"]
