@@ -79,17 +79,13 @@ Development / Contributions
 Running Tests
 -------------
 
-Does the code actually work?
-
-    source <YOURVIRTUALENV>/bin/activate
-    (myenv) $ pip install tox
-    (myenv) $ tox
+`hatch run test:test` will run the tests in every Python + Django versions combination.
 
 
 Development commands
 --------------------
 
-    pip install -r requirements_dev.txt
+`hatch shell`
 
 
 Want to help?
@@ -100,12 +96,6 @@ on the wiki your help is always appreciated! Just fork the project, clone your
 repo, commit, push and send me a pull request
 
 
-Documentation
-=============
-
-The full documentation is at
-<https://matagus.alameda.dev/django-generic-links/>.
-
 License
 -------
 
@@ -113,10 +103,16 @@ License
 for more information.
 
 
-Credits
--------
+Acknowledgements
+----------------
+
+Develop & built using [![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch) [![linting - Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 Tools used in building this package:
 
 -   [Cookiecutter](https://github.com/audreyr/cookiecutter) and [cookiecutter-djangopackage](https://github.com/pydanny/cookiecutter-djangopackage) for rendering this package.
 -   [Carbon](https://carbon.now.sh/) for those beautiful code snippets.
+
+Posts I learned from:
+
+- [Switching to Hatch](https://andrich.me/2023/08/switching-to-hatch/)
