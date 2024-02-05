@@ -20,9 +20,7 @@ class GenericLink(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(max_length=1000, null=True, blank=True)
 
-    user = models.ForeignKey(
-        get_user_model(), null=True, blank=True, on_delete=models.SET_NULL
-    )
+    user = models.ForeignKey(get_user_model(), null=True, blank=True, on_delete=models.SET_NULL)
     created_at = models.DateTimeField(auto_now_add=True, db_index=True)
 
     is_external = models.BooleanField(default=True, db_index=True)

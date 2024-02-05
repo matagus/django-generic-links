@@ -36,9 +36,7 @@ class Migration(migrations.Migration):
                 ("is_external", models.BooleanField(default=True, db_index=True)),
                 (
                     "content_type",
-                    models.ForeignKey(
-                        to="contenttypes.ContentType", on_delete=models.CASCADE
-                    ),
+                    models.ForeignKey(to="contenttypes.ContentType", on_delete=models.CASCADE),
                 ),
                 (
                     "user",
