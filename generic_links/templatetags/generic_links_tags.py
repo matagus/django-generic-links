@@ -1,5 +1,5 @@
 """
-Several usefull template tags!
+Several useful template tags!
 """
 
 from __future__ import annotations
