@@ -53,11 +53,6 @@ repos:
     hooks:
       - id: codespell
 
-  - repo: https://github.com/RobertCraigie/pyright-python
-    rev: v1.1.349
-    hooks:
-      - id: pyright
-
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.15.0
     hooks:
