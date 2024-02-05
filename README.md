@@ -57,7 +57,7 @@ his last.fm profile, his youtube artist page and the like:
 Generic Links Inline Admin
 --------------------------
 
-Since a GenericLink instance will be associated to another object you usally
+Since a GenericLink instance will be associated to another object you usually
 wish to show an inline model admin form in that model form.
 
 ![](docs/images/inline.png)

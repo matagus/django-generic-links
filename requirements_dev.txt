@@ -1,4 +1,4 @@
+pre-commit==2.20.0
 twine
 wheel
 zest.releaser
-pre-commit==2.20.0
