@@ -14,7 +14,7 @@ def get_links_for(obj, is_external=None):
         "content_type__model": obj._meta.model_name,
     }
 
-    if not (is_external is None):
+    if is_external is not None:
         params["is_external"] = is_external
 
     return GenericLink.objects.filter(**params)
