@@ -17,4 +17,4 @@ def get_links_for(obj, is_external=None):
     if is_external is not None:
         params["is_external"] = is_external
 
-    return GenericLink.objects.filter(**params)
+    return GenericLink.objects.filter(**params).select_related("user")
