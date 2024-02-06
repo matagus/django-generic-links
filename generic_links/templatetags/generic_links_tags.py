@@ -1,9 +1,12 @@
 """
 Several useful template tags!
 """
+
 from __future__ import annotations
 
 from django import template
+from django.db.models import Model
+from django.db.models import QuerySet
 
 from generic_links import utils
 
@@ -11,28 +14,16 @@ from generic_links import utils
 register = template.Library()
 
 
-class RelatedLinksNode(template.Node):
-    def __init__(self, context_var, obj, is_external):
-        self.context_var = context_var
-        self.obj_var = template.Variable(obj)
-        self.is_external = is_external
-
-    def render(self, context):
-        obj = self.obj_var.resolve(context)
-        context[self.context_var] = utils.get_links_for(obj).select_related("user").filter(is_external=self.is_external)
-        return ""
-
-
-@register.tag
-def get_links_for(parser, token):
+@register.simple_tag
+def get_links_for(obj: Model, is_external: bool | None = None) -> QuerySet:
     """
-    Usage: {% get_links_for <obj> as <some_var> %}
+    Usage:
+
+    {% get_links_for <obj> as <some_var> %}
+
+    or
+
+    {% get_links_for <obj> <boolean> as <some_var> %}
     """
 
-    bits = token.split_contents()
-
-    if len(bits) != 4:
-        message = "'%s' tag requires three arguments" % bits[0]
-        raise template.TemplateSyntaxError(message)
-
-    return RelatedLinksNode(bits[3], bits[1], True)
+    return utils.get_links_for(obj, is_external=is_external)
