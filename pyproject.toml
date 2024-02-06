@@ -57,6 +57,12 @@ include = [
     "generic_links/",
 ]
 
+[tool.hatch.envs.default]
+dependencies = [
+    "Django>=4.0", "ipython", "ipdb", "mypy", "typing-extensions",
+]
+
+
 # Test environment
 [[tool.hatch.envs.test.matrix]]
 python = ["3.9", "3.10", "3.11"]
