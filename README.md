@@ -27,7 +27,7 @@ Installing `django-generic-links` is fairly easy. You can...
 
     git clone git://github.com/matagus/django-generic-links.git
     cd django-generic-links
-    sudo python setup.py install
+    pip install -e .
 
 then add `generic_links` to your `settings.py`:
 
@@ -49,9 +49,9 @@ Usage
 Using django-generic-links models
 ---------------------------------
 
-Imagine you have a music app in your project where you store Artist data. And you
-would like to store and display links for each artist, say his facebook page,
-his last.fm profile, his youtube artist page and the like:
+Imagine you have a music app in your project where you save and manage artist's data. So you have an `Artist model`.
+And you'd like to store and display links for each artist, say her facebook page, her youtube artist page and her
+last.fm profile page:
 
 ![](docs/images/usage.png)
 
@@ -59,7 +59,7 @@ his last.fm profile, his youtube artist page and the like:
 Generic Links Inline Admin
 --------------------------
 
-Since a GenericLink instance will be associated to another object you usually
+Since a `GenericLink` instance will be associated to another object you usually
 wish to show an inline model admin form in that model form.
 
 ![](docs/images/inline.png)
@@ -97,14 +97,14 @@ repo, commit, push and send me a pull request
 
 
 License
--------
+=======
 
 `django-generic-links` is released under an BSD License - see the `LICENSE` file
 for more information.
 
 
 Acknowledgements
-----------------
+================
 
 Develop & built using [![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch) [![linting - Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
