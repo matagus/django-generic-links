@@ -11,3 +11,4 @@ generic_links.egg-info/
 .coverage
 project/
 htmlcov/
+db.sqlite3
