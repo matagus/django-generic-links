@@ -1,7 +1,6 @@
 from django.contrib import admin
 
 from generic_links.admin import GenericLinkStackedInline
-
 from music_app.models import Album, Artist
 
 

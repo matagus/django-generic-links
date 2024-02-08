@@ -9,7 +9,7 @@ class Artist(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.name
+        return f"{self.name}"
 
 
 class Album(models.Model):

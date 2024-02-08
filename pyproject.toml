@@ -16,6 +16,8 @@ keywords = [
 ]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Environment :: Web Environment",
     "Framework :: Django",
     "Framework :: Django :: 4.0",
     "Framework :: Django :: 4.1",
@@ -29,6 +31,8 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
     "Topic :: Software Development :: Libraries",
 ]
 dependencies = [
@@ -57,8 +61,12 @@ include = [
 
 [tool.hatch.envs.default]
 dependencies = [
-    "Django>=4.0", "ipython", "ipdb", "mypy", "typing-extensions",
+    "Django>=4.0", "ipython", "ipdb", "mypy", "typing-extensions", "django-extensions", "Werkzeug"
 ]
+
+[tool.hatch.envs.default.scripts]
+runserver = "python example_project/manage.py runserver_plus"
+shell = "python example_project/manage.py shell_plus"
 
 # Test environment
 [[tool.hatch.envs.test.matrix]]
@@ -85,3 +93,10 @@ test = "python -m django test --settings tests.settings"
 test-cov = "coverage run -m django test --settings tests.settings"
 cov-report = ["coverage combine", "coverage report"]
 cov = ["test-cov", "cov-report"]
+test-cov-report = ["test-cov", "cov-report"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.black]
+line-length = 120
