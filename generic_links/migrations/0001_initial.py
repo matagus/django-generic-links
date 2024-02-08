@@ -1,8 +1,7 @@
 from __future__ import annotations
 
 from django.conf import settings
-from django.db import migrations
-from django.db import models
+from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
@@ -36,7 +35,9 @@ class Migration(migrations.Migration):
                 ("is_external", models.BooleanField(default=True, db_index=True)),
                 (
                     "content_type",
-                    models.ForeignKey(to="contenttypes.ContentType", on_delete=models.CASCADE),
+                    models.ForeignKey(
+                        to="contenttypes.ContentType", on_delete=models.CASCADE
+                    ),
                 ),
                 (
                     "user",

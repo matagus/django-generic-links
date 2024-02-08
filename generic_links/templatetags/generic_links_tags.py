@@ -5,11 +5,9 @@ Several useful template tags!
 from __future__ import annotations
 
 from django import template
-from django.db.models import Model
-from django.db.models import QuerySet
+from django.db.models import Model, QuerySet
 
 from generic_links import utils
-
 
 register = template.Library()
 
