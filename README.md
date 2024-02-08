@@ -19,28 +19,34 @@ Features
 Installation
 ============
 
-Installing `django-generic-links` is fairly easy. You can...
+Via `pip` command:
 
-    pip install django-generic-links
+```bash
+pip install django-generic-links
+```
 
-...or, you can clone the repo and install it the old fashioned way.
+...or you can clone the repo and install it using `pip` too:
 
-    git clone git://github.com/matagus/django-generic-links.git
-    cd django-generic-links
-    pip install -e .
+```bash
+git clone git://github.com/matagus/django-generic-links.git
+cd django-generic-links
+pip install -e .
+```
 
 then add `generic_links` to your `settings.py`:
 
-``` python
+```python
 INSTALLED_APPS = (
     # ...
     "generic_links",
 )
 ```
 
-and then run the migrations!
+and then run the migrations:
 
-    # python manage.py migrate
+```bash
+python manage.py migrate
+```
 
 
 Usage
@@ -53,8 +59,27 @@ Imagine you have a music app in your project where you save and manage artist's 
 And you'd like to store and display links for each artist, say her facebook page, her youtube artist page and her
 last.fm profile page:
 
-![](docs/images/usage.png)
-
+```python
+>>> from generic_links.models import GenericLink
+>>> from music.models import Artist
+>>> # Get an artist from our database...
+>>> lou_reed = Artist.objects.get(pk=1)
+>>> lou_reed
+<Artist: Lou Reed>
+>>> # Create the first link
+>>> link1 = GenericLink()
+>>> link1.title = "Wikipedia Page"
+>>> link1.url = "http://en.wikipedia.org/wiki/Lou_Reed"
+>>> link1.is_external = True
+>>> linkl.content_object = lour_reed
+>>> link1.save()
+>>> # and then a second one
+>>> link2 = GenericLink()
+>>> link2.title = "Youtube artist page"
+>>> link2.url = "http://www.youtube.com/artist/lou_reed" >>> link2.is_external = True
+>>> link2.content_object
+>>> link2.save()
+```
 
 Generic Links Inline Admin
 --------------------------
@@ -62,7 +87,19 @@ Generic Links Inline Admin
 Since a `GenericLink` instance will be associated to another object you usually
 wish to show an inline model admin form in that model form.
 
-![](docs/images/inline.png)
+```python
+from django.contrib import admin
+
+from generic_links.admin import GenericLinkStackedInline
+
+from music_app.models import Artist
+
+
+@admin.register(Artist)
+class ArtistAdmin(admin.ModelAdmin):
+    # ...
+    inlines = [GenericLinkStackedInline]
+```
 
 
 Using django-generic-links templatetags
@@ -71,7 +108,20 @@ Using django-generic-links templatetags
 Now imagine you have an artist page. You're passing `artist` object using template
 context and you want to get all the links for it:
 
-![](docs/images/templatetags.png)
+```html
+{% load generic_links_tags %}
+
+<hl>{{ artist.name }}</hl>
+<p>{{ artist.description }}</p>
+<h2>Links for {{ artist.name }}</h2>
+{% get_links_for artist as artist_links %}
+<ul>
+{% for link in artist_links %}
+  ‹li><a href="{{ link.url }}" title="{{ link.title }}"> {{ link. title }}</a></li>
+{% endfor %}
+</ul>
+```
+
 
 Development / Contributions
 ===========================
