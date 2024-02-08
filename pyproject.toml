@@ -91,9 +91,8 @@ dependencies = ["coverage[toml]", "django~={matrix:django}.0"]
 [tool.hatch.envs.test.scripts]
 test = "python -m django test --settings tests.settings"
 test-cov = "coverage run -m django test --settings tests.settings"
-cov-report = ["coverage combine", "coverage report"]
+cov-report = ["coverage json", "coverage report"]
 cov = ["test-cov", "cov-report"]
-test-cov-report = ["test-cov", "cov-report"]
 
 [tool.ruff]
 line-length = 120
