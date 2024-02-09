@@ -60,3 +60,28 @@ class TemplateTagTestCase(TestCase):
         rendered_string2 = template.render(Context({"my_obj": self.user2}))
 
         self.assertEqual(self.link3.url, rendered_string2.strip())
+
+    def test_get_external_links_for(self):
+        """
+        Test the `get_links_for` template tag with is_external argument.
+        """
+
+        template_string = """
+            {% load generic_links_tags %}
+            {% get_links_for my_obj is_external=True as links_qs %}
+            {% for link in links_qs %}
+                {{ link.url }}
+            {% endfor %}
+        """
+
+        template = Template(template_string)
+
+        rendered_string = template.render(Context({"my_obj": self.user1}))
+
+        self.assertIn(self.link1.url, rendered_string)
+        self.assertIn(self.link2.url, rendered_string)
+        self.assertNotIn(self.link3.url, rendered_string)
+
+        rendered_string2 = template.render(Context({"my_obj": self.user2}))
+
+        self.assertEqual(self.link3.url, rendered_string2.strip())
