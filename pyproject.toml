@@ -61,12 +61,19 @@ include = [
 
 [tool.hatch.envs.default]
 dependencies = [
+    "Django>=4.0", "ipython", "ipdb", "mypy", "typing-extensions"
+]
+
+[tool.hatch.envs.project]
+dependencies = [
     "Django>=4.0", "ipython", "ipdb", "mypy", "typing-extensions", "django-extensions", "Werkzeug"
 ]
 
-[tool.hatch.envs.default.scripts]
-runserver = "python example_project/manage.py runserver_plus"
+[tool.hatch.envs.project.scripts]
+server = "python example_project/manage.py runserver_plus"
 shell = "python example_project/manage.py shell_plus"
+migrate = "python example_project/manage.py migrate"
+makemigrations = "python example_project/manage.py makemigrations"
 
 # Test environment
 [[tool.hatch.envs.test.matrix]]
