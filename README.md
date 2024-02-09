@@ -5,9 +5,6 @@ django-generic-links
 
 Simple app to attach links to any Django model. Compatible with Django 4.x to 5.0 and Python 3.9 to 3.12.
 
-![](docs/images/admin.png)
-
-
 Features
 ========
 
@@ -123,27 +120,20 @@ context and you want to get all the links for it:
 ```
 
 
-Development / Contributions
-===========================
+Contributing
+============
+
+Contributions are welcome! ❤️
+
+Please read [Contributing.md](CONTRIBUTING.md) for detailed instructions on how to help.
 
 Running Tests
 -------------
 
 `hatch run test:test` will run the tests in every Python + Django versions combination.
 
-
-Development commands
---------------------
-
-`hatch shell`
-
-
-Want to help?
--------------
-
-If you'd like to help, write example code, contribute patches, document things
-on the wiki your help is always appreciated! Just fork the project, clone your
-repo, commit, push and send me a pull request
+`hatch run test.py3.12-5.0:test will run them for python 3.12 and Django 5.0. Please see possible combinations using
+`hatch env show` ("test" matrix).
 
 
 License
@@ -161,7 +151,6 @@ Develop & built using [![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9
 Tools used in building this package:
 
 -   [Cookiecutter](https://github.com/audreyr/cookiecutter) and [cookiecutter-djangopackage](https://github.com/pydanny/cookiecutter-djangopackage) for rendering this package.
--   [Carbon](https://carbon.now.sh/) for those beautiful code snippets.
 
 Posts I learned from:
 

@@ -1,5 +1,5 @@
-name: Issue
-description: File an issue
+name: Bug Report
+description: File a bug
 body:
 - type: input
   id: python_version
@@ -29,6 +29,6 @@ body:
   id: description
   attributes:
     label: Description
-    description: Please describe your issue.
+    description: Please describe the bug
   validations:
     required: true
