@@ -30,5 +30,5 @@ class GenericLink(models.Model):
         verbose_name = _("Generic Link")
         verbose_name_plural = _("Generic Links")
 
-    def __unicode__(self):
-        return self.url
+    def __str__(self):
+        return f"{self.title} :: {self.url}"
