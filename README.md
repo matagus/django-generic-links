@@ -8,9 +8,12 @@ Simple app to attach links to any Django model. Compatible with Django 4.x to 5.
 Features
 ========
 
+- Model for creating generic link relations
+- Reverse Generic Relation (Django) for your models
 - Model Admin
-- Generic inline admin
+- Generic inline admin to manage any model's generic links
 - A template tag to get all links for a given model instance
+- A fully working example project
 
 
 Installation
@@ -39,10 +42,33 @@ INSTALLED_APPS = (
 )
 ```
 
-and then run the migrations:
+then run the migrations:
 
 ```bash
 python manage.py migrate
+```
+
+and finally add the reverse generic relation to each of the models you're going to add generic links to:
+
+```python
+from django.db import models
+from django.contrib.contenttypes.fields import GenericRelation
+
+
+class Artist(models.Model):
+    name = models.CharField(max_length=100)
+    bio = models.TextField()
+
+    # This is important so that we can get the GenericLink related instances for an object of this model
+    generic_links = GenericRelation("generic_links.GenericLink")
+
+
+class Album(models.Model):
+    title = models.CharField(max_length=100)
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    release_date = models.DateField(null=True, blank=True)
+
+    generic_links = GenericRelation("generic_links.GenericLink")
 ```
 
 
@@ -52,30 +78,28 @@ Usage
 Using django-generic-links models
 ---------------------------------
 
-Imagine you have a music app in your project where you save and manage artist's data. So you have an `Artist model`.
-And you'd like to store and display links for each artist, say her facebook page, her youtube artist page and her
-last.fm profile page:
-
 ```python
 >>> from generic_links.models import GenericLink
 >>> from music.models import Artist
->>> # Get an artist from our database...
+>>>
+>>> # Get an artist from the database...
 >>> lou_reed = Artist.objects.get(pk=1)
 >>> lou_reed
 <Artist: Lou Reed>
+>>>
 >>> # Create the first link
->>> link1 = GenericLink()
->>> link1.title = "Wikipedia Page"
->>> link1.url = "http://en.wikipedia.org/wiki/Lou_Reed"
->>> link1.is_external = True
->>> linkl.content_object = lour_reed
+>>> link1 = GenericLink(title="Wikipedia Page", url="http://en.wikipedia.org/wiki/Lou_Reed", content_object=lou_reed)
 >>> link1.save()
+>>>
 >>> # and then a second one
->>> link2 = GenericLink()
->>> link2.title = "Youtube artist page"
->>> link2.url = "http://www.youtube.com/artist/lou_reed" >>> link2.is_external = True
->>> link2.content_object
+>>> link2 = GenericLink(title="Encyclopaedia Britannica", url="https://www.britannica.com/biography/Lou-Reed",
+content_object=lou_reed)
 >>> link2.save()
+>>>
+>>> # Now get all the links for the artist object:
+>>> lou_reed.generic_links.all()
+<QuerySet [<GenericLink: Encyclopaedia Britannica :: https://www.britannica.com/biography/Lou-Reed>,
+<GenericLink: Wikipedia Page :: https://en.wikipedia.org/wiki/Lou_Reed>]>
 ```
 
 Generic Links Inline Admin

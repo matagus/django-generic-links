@@ -22,7 +22,7 @@ body:
   attributes:
     label: Package Version
     description: Which version of this package were you using? If not the latest version, please check this issue has not since been resolved.
-    placeholder: 0.9.0
+    placeholder: 0.10.0
   validations:
     required: false
 - type: textarea

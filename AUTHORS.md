@@ -1,15 +1,10 @@
----
-title: Credits
----
+# Primary Authors
 
-Development Lead
-================
+- Matias Agustin Mendez (https://github.com/matagus)
 
--   Matias Agustin Mendez \<<matagus@gmail.com>\>
+# Contributors
 
-Contributors
-============
-
--   Matt Fisher (<https://github.com/MattFisher>)
--   annikaC (<https://github.com/annikaC>)
--   Andy Kilner (<https://github.com/gnublade>)
+- Matt Fisher (https://github.com/MattFisher)
+- annikaC (https://github.com/annikaC)
+- Andy Kilner (https://github.com/gnublade)
+- John Baldwin (https://github.com/johnbaldwin)
