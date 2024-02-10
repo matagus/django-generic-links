@@ -10,20 +10,18 @@ class AddLinkForm(forms.ModelForm):
         model = GenericLink
         fields = ("title", "url", "description", "is_external")
 
-    def __init__(self, user, content_type, object_id, *args, **kwargs):
+    def __init__(self, content_object, user, *args, **kwargs):
+        self.content_object = content_object
         self.user = user
-        self.content_type = content_type
-        self.object_id = object_id
         super().__init__(*args, **kwargs)
 
     def save(self, *args, **kwargs):
         self.instance = GenericLink.objects.create(
-            content_type=self.content_type,
-            object_id=self.object_id,
+            content_object=self.content_object,
             url=self.cleaned_data["url"].strip(),
             title=self.cleaned_data["title"],
             user=self.user,
             is_external=self.cleaned_data["is_external"],
         )
-
+        self.instance.save()
         return self.instance

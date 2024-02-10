@@ -1,5 +1,4 @@
 from django.contrib.auth.models import User
-from django.contrib.contenttypes.models import ContentType
 from django.template import Context, Template
 from django.test import TestCase
 
@@ -12,29 +11,27 @@ class TemplateTagTestCase(TestCase):
     """
 
     def setUp(self):
-        content_type = ContentType.objects.get_for_model(User)
-
         self.user1 = User.objects.create(username="test_user")
 
         self.link1 = GenericLink.objects.create(
             url="https://example.com/path/to/this-thing/",
-            content_type=content_type,
-            object_id=self.user1.id,
+            content_object=self.user1,
         )
+        self.link1.save()
 
         self.link2 = GenericLink.objects.create(
             url="https://example.com/path/to/other-thing/",
-            content_type=content_type,
-            object_id=self.user1.id,
+            content_object=self.user1,
         )
+        self.link2.save()
 
         self.user2 = User.objects.create(username="test_user2")
 
         self.link3 = GenericLink.objects.create(
             url="https://example.com/foobar/",
-            content_type=content_type,
-            object_id=self.user2.id,
+            content_object=self.user2,
         )
+        self.link3.save()
 
     def test_get_links_for(self):
         """
