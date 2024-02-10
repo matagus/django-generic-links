@@ -179,3 +179,4 @@ Tools used in building this package:
 Posts I learned from:
 
 - [Switching to Hatch](https://andrich.me/2023/08/switching-to-hatch/)
+- [Automate Hatch Publish with GitHub Actions](https://blog.pecar.me/automate-hatch-publish)
