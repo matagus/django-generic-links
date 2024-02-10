@@ -14,7 +14,7 @@ class GenericLink(models.Model):
 
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField(db_index=True)
-    content_object = GenericForeignKey()
+    content_object = GenericForeignKey("content_type", "object_id")
 
     url = models.URLField()
     title = models.CharField(max_length=200)
@@ -29,6 +29,9 @@ class GenericLink(models.Model):
         ordering = ("-created_at",)
         verbose_name = _("Generic Link")
         verbose_name_plural = _("Generic Links")
+        indexes = [
+            models.Index(fields=["content_type", "object_id"]),
+        ]
 
     def __str__(self):
         return f"{self.title} :: {self.url}"
