@@ -6,6 +6,8 @@ from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from .managers import GenericLinkQuerySet
+
 
 class GenericLink(models.Model):
     """
@@ -24,6 +26,8 @@ class GenericLink(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, db_index=True)
 
     is_external = models.BooleanField(default=True, db_index=True)
+
+    objects = GenericLinkQuerySet.as_manager()
 
     class Meta:
         ordering = ("-created_at",)
