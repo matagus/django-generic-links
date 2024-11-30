@@ -7,3 +7,6 @@ class GenericLinkQuerySet(models.QuerySet):
 
     def external(self):
         return self.filter(is_external=True)
+
+    def by_user(self, user):
+        return self.filter(user=user)
