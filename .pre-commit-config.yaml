@@ -1,6 +1,6 @@
 default_stages: [pre-commit]
 default_language_version:
-  python: python3.12
+  python: python3.13
 
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
@@ -57,4 +57,4 @@ repos:
     rev: v3.20.0
     hooks:
     - id: pyupgrade
-      args: [--py312]
+      args: [--py313]
