@@ -3,10 +3,10 @@ default_language_version:
   python: python3.12
 
 repos:
-  - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: "v0.13.2"
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: "v0.14.0"
     hooks:
-      - id: ruff
+      - id: ruff-check
         args: [--fix]
 
   - repo: https://github.com/psf/black
