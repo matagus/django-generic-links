@@ -29,7 +29,6 @@ classifiers = [
     "License :: OSI Approved :: BSD License",
     "Natural Language :: English",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -82,15 +81,15 @@ makemigrations = "python example_project/manage.py makemigrations"
 # Test environment
 [[tool.hatch.envs.test.matrix]]
 django = ["4.0"]
-python = ["3.9", "3.10"]
+python = ["3.10"]
 
 [[tool.hatch.envs.test.matrix]]
 django = ["4.1"]
-python = ["3.9", "3.10", "3.11"]
+python = ["3.10", "3.11"]
 
 [[tool.hatch.envs.test.matrix]]
 django = ["4.2"]
-python = ["3.9", "3.10", "3.11", "3.12"]
+python = ["3.10", "3.11", "3.12"]
 
 [[tool.hatch.envs.test.matrix]]
 django = ["5.0"]
