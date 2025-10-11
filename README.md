@@ -8,7 +8,7 @@ django-generic-links
 [![codecov](https://codecov.io/gh/matagus/django-generic-links/graph/badge.svg?token=a64SxEDQk0)](https://codecov.io/gh/matagus/django-generic-links)
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
-Simple app to attach links to any Django model. Compatible with Django 4.x to 5.2 and Python 3.10 to 3.14.
+Simple app to attach links to any Django model. Compatible with Django 4.2 to 5.2 and Python 3.10 to 3.14.
 
 Features
 ========

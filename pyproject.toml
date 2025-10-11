@@ -19,8 +19,6 @@ classifiers = [
     "Environment :: Console",
     "Environment :: Web Environment",
     "Framework :: Django",
-    "Framework :: Django :: 4.0",
-    "Framework :: Django :: 4.1",
     "Framework :: Django :: 4.2",
     "Framework :: Django :: 5.0",
     "Framework :: Django :: 5.1",
@@ -39,7 +37,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries",
 ]
 dependencies = [
-    "Django>=4.0",
+    "Django>=4.2",
 ]
 
 [project.urls]
@@ -64,12 +62,12 @@ include = [
 
 [tool.hatch.envs.default]
 dependencies = [
-    "Django>=4.0", "ipython", "ipdb", "mypy", "typing-extensions"
+    "Django>=4.2", "ipython", "ipdb", "mypy", "typing-extensions"
 ]
 
 [tool.hatch.envs.project]
 dependencies = [
-    "Django>=4.0", "ipython", "ipdb", "mypy", "typing-extensions", "django-extensions", "Werkzeug"
+    "Django>=4.2", "ipython", "ipdb", "mypy", "typing-extensions", "django-extensions", "Werkzeug"
 ]
 
 [tool.hatch.envs.project.scripts]
@@ -79,14 +77,6 @@ migrate = "python example_project/manage.py migrate"
 makemigrations = "python example_project/manage.py makemigrations"
 
 # Test environment
-[[tool.hatch.envs.test.matrix]]
-django = ["4.0"]
-python = ["3.10"]
-
-[[tool.hatch.envs.test.matrix]]
-django = ["4.1"]
-python = ["3.10", "3.11"]
-
 [[tool.hatch.envs.test.matrix]]
 django = ["4.2"]
 python = ["3.10", "3.11", "3.12"]
