@@ -1,7 +1,12 @@
 django-generic-links
 ====================
 
-![Python Compatibility](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue.svg) [![PyPi Version](https://img.shields.io/pypi/v/django-generic-links.svg)](https://pypi.python.org/pypi/django-generic-links)  ![CI badge](https://github.com/matagus/django-generic-links/actions/workflows/ci.yml/badge.svg) [![codecov](https://codecov.io/gh/matagus/django-generic-links/graph/badge.svg?token=a64SxEDQk0)](https://codecov.io/gh/matagus/django-generic-links) [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+![Python Compatibility](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue.svg)
+![Django Compatibility](https://img.shields.io/badge/django-4.2%20|%205.0%20|%205.1-%2344B78B?labelColor=%23092E20)
+[![PyPi Version](https://img.shields.io/pypi/v/django-generic-links.svg)](https://pypi.python.org/pypi/django-generic-links)
+![CI badge](https://github.com/matagus/django-generic-links/actions/workflows/ci.yml/badge.svg)
+[![codecov](https://codecov.io/gh/matagus/django-generic-links/graph/badge.svg?token=a64SxEDQk0)](https://codecov.io/gh/matagus/django-generic-links)
+[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 Simple app to attach links to any Django model. Compatible with Django 4.x to 5.1 and Python 3.9 to 3.13.
 
