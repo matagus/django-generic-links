@@ -1,120 +1,78 @@
----
-title: Contributing
----
+# Contributing to django-generic-links
 
-Contributions are welcome, and they are greatly appreciated! Every
-little bit helps, and credit will always be given.
+Thank you for considering contributing! ❤️
 
-You can contribute in many ways:
+## Getting Started
 
-Types of Contributions
-======================
+**Prerequisites:** Python 3.9+ and [Hatch](https://hatch.pypa.io/)
 
-Report Bugs
------------
+```bash
+# Clone the repository
+git clone https://github.com/matagus/django-generic-links.git
+cd django-generic-links
 
-Report bugs at <https://github.com/matagus/generic_links/issues>.
+# Install Hatch
+pip install hatch
 
-If you are reporting a bug, please include:
+# Install pre-commit hooks
+pip install pre-commit
+pre-commit install
+```
 
--   Your operating system name and version.
--   Any details about your local setup that might be helpful in
-    troubleshooting.
--   Detailed steps to reproduce the bug.
+## Development Workflow
 
-Fix Bugs
---------
+### Running the Example Project
 
-Look through the GitHub issues for bugs. Anything tagged with \"bug\" is
-open to whoever wants to implement it.
+```bash
+hatch run project:migrate
+hatch run project:createsuperuser
+hatch run project:runserver
+```
 
-Implement Features
-------------------
+Visit http://127.0.0.1:8000/admin/ to test the app with a populated admin.
 
-Look through the GitHub issues for features. Anything tagged with
-\"feature\" is open to whoever wants to implement it.
+### Running Tests
 
-Write Documentation
--------------------
+```bash
+# All Python + Django combinations
+hatch run test:test
 
-django-generic-links could always use more documentation, whether as
-part of the official django-generic-links docs, in docstrings, or even
-on the web in blog posts, articles, and such.
+# Specific version
+hatch run test.py3.12-5.2:test
 
-Submit Feedback
----------------
+# With coverage
+hatch run test:cov
+```
 
-The best way to send feedback is to file an issue at
-<https://github.com/matagus/generic_links/issues>.
+### Code Style
 
-If you are proposing a feature:
+We use Ruff and Black. Pre-commit hooks will automatically format your code.
 
--   Explain in detail how it would work.
--   Keep the scope as narrow as possible, to make it easier to
-    implement.
--   Remember that this is a volunteer-driven project, and that
-    contributions are welcome :)
+```bash
+# Install pre-commit
+pip install pre-commit
 
-Get Started!
-============
+# Set up git hooks
+pre-commit install
 
-Ready to contribute? Here\'s how to set up [generic\_links]{.title-ref}
-for local development.
+# Run hooks manually on all files
+pre-commit run --all-files
+```
 
-1.  Fork the [generic\_links]{.title-ref} repo on GitHub.
-2.  Clone your fork locally:
+## Pull Request Guidelines
 
-        $ git clone git@github.com:your_name_here/generic_links.git
+1. **Fork and branch**: Create a feature branch from `main`
+2. **Write tests**: Add tests for new features or bug fixes
+3. **Update docs**: Update README.md if adding features
+4. **Keep it focused**: One feature/fix per PR
+5. **Test thoroughly**: Ensure tests pass for all Python/Django versions
 
-3.  Install your local copy into a virtualenv. Assuming you have
-    virtualenvwrapper installed, this is how you set up your fork for
-    local development:
+## Useful Links
 
-        $ mkvirtualenv generic_links
-        $ cd generic_links/
-        $ python setup.py develop
+- **Repository**: https://github.com/matagus/django-generic-links
+- **Issues**: https://github.com/matagus/django-generic-links/issues
+- **Discussions**: https://github.com/matagus/django-generic-links/discussions
 
-4.  Create a branch for local development:
+## Questions?
 
-        $ git checkout -b name-of-your-bugfix-or-feature
-
-    Now you can make your changes locally.
-
-5.  When you\'re done making changes, check that your changes pass
-    flake8 and the tests, including testing other Python versions with
-    tox:
-
-        $ flake8 generic_links tests
-        $ python setup.py test
-        $ tox
-
-    To get flake8 and tox, just pip install them into your virtualenv.
-
-6.  Commit your changes and push your branch to GitHub:
-
-        $ git add .
-        $ git commit -m "Your detailed description of your changes."
-        $ git push origin name-of-your-bugfix-or-feature
-
-7.  Submit a pull request through the GitHub website.
-
-Pull Request Guidelines
-=======================
-
-Before you submit a pull request, check that it meets these guidelines:
-
-1.  The pull request should include tests.
-2.  If the pull request adds functionality, the docs should be updated.
-    Put your new functionality into a function with a docstring, and add
-    the feature to the list in README.rst.
-3.  The pull request should work for Python 2.6, 2.7, and 3.3, and for
-    PyPy. Check
-    <https://travis-ci.org/matagus/generic_links/pull_requests> and make
-    sure that the tests pass for all supported Python versions.
-
-Tips
-====
-
-To run a subset of tests:
-
-    $ python -m unittest tests.test_generic_links
+Open an issue for discussion before starting major changes. We're here to help!

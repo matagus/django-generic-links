@@ -43,9 +43,9 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://github.com/matagus/django-generic-links"
-Issues = "https://.github.com/matagus/django-generic-links/issues"
+Issues = "https://github.com/matagus/django-generic-links/issues"
 Repository = "https://github.com/matagus/django-generic-links"
-Changelog = "https://githib.com/matagus/django-generic-links/releases"
+Changelog = "https://github.com/matagus/django-generic-links/releases"
 Pypi = "https://pypi.org/project/django-generic-links"
 
 [tool.hatch.version]
