@@ -19,26 +19,25 @@ classifiers = [
     "Environment :: Console",
     "Environment :: Web Environment",
     "Framework :: Django",
-    "Framework :: Django :: 4.0",
-    "Framework :: Django :: 4.1",
     "Framework :: Django :: 4.2",
     "Framework :: Django :: 5.0",
     "Framework :: Django :: 5.1",
+    "Framework :: Django :: 5.2",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: BSD License",
     "Natural Language :: English",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
     "Topic :: Software Development :: Libraries",
 ]
 dependencies = [
-    "Django>=4.0",
+    "Django>=4.2",
 ]
 
 [project.urls]
@@ -63,12 +62,12 @@ include = [
 
 [tool.hatch.envs.default]
 dependencies = [
-    "Django>=4.0", "ipython", "ipdb", "mypy", "typing-extensions"
+    "Django>=4.2", "ipython", "ipdb", "mypy", "typing-extensions"
 ]
 
 [tool.hatch.envs.project]
 dependencies = [
-    "Django>=4.0", "ipython", "ipdb", "mypy", "typing-extensions", "django-extensions", "Werkzeug"
+    "Django>=4.2", "ipython", "ipdb", "mypy", "typing-extensions", "django-extensions", "Werkzeug"
 ]
 
 [tool.hatch.envs.project.scripts]
@@ -79,16 +78,8 @@ makemigrations = "python example_project/manage.py makemigrations"
 
 # Test environment
 [[tool.hatch.envs.test.matrix]]
-django = ["4.0"]
-python = ["3.9", "3.10"]
-
-[[tool.hatch.envs.test.matrix]]
-django = ["4.1"]
-python = ["3.9", "3.10", "3.11"]
-
-[[tool.hatch.envs.test.matrix]]
 django = ["4.2"]
-python = ["3.9", "3.10", "3.11", "3.12"]
+python = ["3.10", "3.11", "3.12"]
 
 [[tool.hatch.envs.test.matrix]]
 django = ["5.0"]
@@ -96,7 +87,11 @@ python = ["3.10", "3.11", "3.12", "3.13"]
 
 [[tool.hatch.envs.test.matrix]]
 django = ["5.1"]
-python = ["3.10", "3.11", "3.12", "3.13"]
+python = ["3.10", "3.11", "3.12", "3.13", "3.14"]
+
+[[tool.hatch.envs.test.matrix]]
+django = ["5.2"]
+python = ["3.10", "3.11", "3.12", "3.13", "3.14"]
 
 [tool.hatch.envs.test]
 dependencies = ["coverage[toml]", "django~={matrix:django}.0"]

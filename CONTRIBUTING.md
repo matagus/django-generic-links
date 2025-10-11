@@ -4,7 +4,7 @@ Thank you for considering contributing! ❤️
 
 ## Getting Started
 
-**Prerequisites:** Python 3.9+ and [Hatch](https://hatch.pypa.io/)
+**Prerequisites:** Python 3.10+ and [Hatch](https://hatch.pypa.io/)
 
 ```bash
 # Clone the repository

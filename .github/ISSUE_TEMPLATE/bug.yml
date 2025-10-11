@@ -6,7 +6,7 @@ body:
   attributes:
     label: Python Version
     description: Which version of Python were you using?
-    placeholder: 3.13.0
+    placeholder: 3.14
   validations:
     required: false
 - type: input
