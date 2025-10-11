@@ -143,7 +143,7 @@ context and you want to get all the links for it:
 {% get_links_for artist as artist_links %}
 <ul>
 {% for link in artist_links %}
-  ‹li><a href="{{ link.url }}" title="{{ link.title }}"> {{ link. title }}</a></li>
+  <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
 {% endfor %}
 </ul>
 ```
@@ -161,14 +161,14 @@ Running Tests
 
 `hatch run test:test` will run the tests in every Python + Django versions combination.
 
-`hatch run test.py3.13-5.1:test will run them for python 3.13 and Django 5.1. Please see possible combinations using
+`hatch run test.py3.13-5.1:test` will run them for python 3.13 and Django 5.1. Please see possible combinations using
 `hatch env show` ("test" matrix).
 
 
 License
 =======
 
-`django-generic-links` is released under an BSD License - see the `LICENSE` file
+`django-generic-links` is released under a BSD License - see the `LICENSE` file
 for more information.
 
 
