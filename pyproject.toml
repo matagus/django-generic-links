@@ -40,8 +40,16 @@ dependencies = [
     "Django>=4.2",
 ]
 
+[project.optional-dependencies]
+docs = [
+    "mkdocs",
+    "mkdocs-material",
+    "pygments",
+    "pymdown-extensions",
+]
+
 [project.urls]
-Homepage = "https://github.com/matagus/django-generic-links"
+Homepage = "https://matagus.github.io/django-generic-links/"
 Issues = "https://github.com/matagus/django-generic-links/issues"
 Repository = "https://github.com/matagus/django-generic-links"
 Changelog = "https://github.com/matagus/django-generic-links/releases"
@@ -64,6 +72,14 @@ include = [
 dependencies = [
     "Django>=4.2", "ipython", "ipdb", "mypy", "typing-extensions"
 ]
+
+[tool.hatch.envs.docs]
+dependencies = ["mkdocs", "mkdocs-material", "pygments", "pymdown-extensions"]
+
+[tool.hatch.envs.docs.scripts]
+new = "mkdocs new ."
+build = "mkdocs build {args}"
+serve = "mkdocs serve {args}"
 
 [tool.hatch.envs.project]
 dependencies = [

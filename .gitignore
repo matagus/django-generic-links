@@ -14,3 +14,6 @@ project/
 htmlcov/
 db.sqlite3
 WARP.md
+
+# mkdocs
+site/
