@@ -37,8 +37,8 @@ Visit http://127.0.0.1:8000/admin/ to test the app with a populated admin.
 # All Python + Django combinations
 hatch run test:test
 
-# Specific version
-hatch run test.py3.12-5.2:test
+# Specific versions: Python 3.14 and Django 5.2
+hatch run test.py3.14-5.2:test
 
 # With coverage
 hatch run test:cov
