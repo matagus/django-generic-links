@@ -4,7 +4,7 @@ Thank you for considering contributing! ❤️
 
 ## Getting Started
 
-**Prerequisites:** Python 3.10+ and [Hatch](https://hatch.pypa.io/)
+**Prerequisites:** Python 3.12+ and [Hatch](https://hatch.pypa.io/)
 
 ```bash
 # Clone the repository
@@ -58,10 +58,9 @@ hatch run test:cov
 
 **Available test environments:**
 
-- Python 3.10-3.12 with Django 4.2
-- Python 3.10-3.13 with Django 5.0
-- Python 3.10-3.14 with Django 5.1
-- Python 3.10-3.14 with Django 5.2
+- Python 3.12 with Django 4.2
+- Python 3.12-3.13 with Django 5.0
+- Python 3.12-3.14 with Django 5.1, 5.2, 6.0
 
 View all environments: `hatch env show test`
 
@@ -87,7 +86,7 @@ pre-commit run --all-files
 - Black (formatting)
 - Standard checks (trailing whitespace, YAML validation, etc.)
 - Codespell
-- Pyupgrade (Python 3.10+ syntax)
+- Pyupgrade (Python 3.12+ syntax)
 
 ## Pull Request Guidelines
 
