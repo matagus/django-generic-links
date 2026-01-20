@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from django.contrib import admin
 from django.contrib.contenttypes import admin as ct_admin
 

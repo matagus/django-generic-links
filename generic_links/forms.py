@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from django import forms
 
 from generic_links.models import GenericLink

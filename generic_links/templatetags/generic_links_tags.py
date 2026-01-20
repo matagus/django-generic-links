@@ -2,8 +2,6 @@
 Several useful template tags!
 """
 
-from __future__ import annotations
-
 from django import template
 from django.db.models import Model, QuerySet
 
