@@ -27,3 +27,20 @@ class AddFormTest(TestCase):
         self.assertEqual(new_link.user, None)
         self.assertEqual(new_link.content_object, self.content_object)
         self.assertEqual(new_link.is_external, False)
+
+    def test_add_form_saves_description(self):
+        form = AddLinkForm(
+            *self.initial_args,
+            data={
+                "url": "http://www.example.com",
+                "title": "Example",
+                "description": "An example description",
+            },
+        )
+        self.assertTrue(form.is_valid())
+
+        new_link = form.save()
+        self.assertEqual(new_link.description, "An example description")
+
+        new_link.refresh_from_db()
+        self.assertEqual(new_link.description, "An example description")
