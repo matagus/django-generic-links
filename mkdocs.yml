@@ -1,5 +1,5 @@
 site_name: django-generic-links
-site_url: https://github.com/matagus/django-generic-links
+site_url: https://matagus.github.io/django-generic-links/
 repo_url: https://github.com/matagus/django-generic-links
 theme:
   name: "material"
