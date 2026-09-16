@@ -26,7 +26,22 @@ class AddFormTest(TestCase):
         self.assertEqual(new_link.title, "Example")
         self.assertEqual(new_link.user, None)
         self.assertEqual(new_link.content_object, self.content_object)
+        # Unchecked checkboxes are absent from POST data, so is_external is False
         self.assertEqual(new_link.is_external, False)
+
+    def test_unbound_form_initial_is_external_true(self):
+        form = AddLinkForm(*self.initial_args)
+        self.assertTrue(form.fields["is_external"].initial)
+
+    def test_add_form_with_is_external_checked(self):
+        form = AddLinkForm(
+            *self.initial_args,
+            data={"url": "http://www.example.com", "title": "Example", "is_external": "on"},
+        )
+        self.assertTrue(form.is_valid())
+
+        new_link = form.save()
+        self.assertTrue(new_link.is_external)
 
     def test_add_form_saves_description(self):
         form = AddLinkForm(

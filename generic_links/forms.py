@@ -4,6 +4,11 @@ from generic_links.models import GenericLink
 
 
 class AddLinkForm(forms.ModelForm):
+    # The model default is True, so unbound forms render the checkbox checked.
+    # Note: HTML checkboxes are absent from POST data when unchecked, so a
+    # submitted form without the checkbox saves is_external=False.
+    is_external = forms.BooleanField(initial=True, required=False)
+
     class Meta:
         model = GenericLink
         fields = ("title", "url", "description", "is_external")
