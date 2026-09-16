@@ -66,7 +66,7 @@ View all environments: `hatch env show test`
 
 ### Code Style
 
-We use Ruff for linting and Black for formatting. Pre-commit hooks will automatically format your code.
+We use Ruff for linting and formatting. Pre-commit hooks will automatically format your code.
 
 **Line length:** 120 characters
 
@@ -83,7 +83,7 @@ pre-commit run --all-files
 
 **Pre-commit checks include:**
 - Ruff (linting with auto-fix)
-- Black (formatting)
+- Ruff Format (formatting)
 - Standard checks (trailing whitespace, YAML validation, etc.)
 - Codespell
 - Pyupgrade (Python 3.12+ syntax)
