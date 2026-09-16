@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 
 from generic_links.forms import AddLinkForm
+from generic_links.models import GenericLink
 
 
 class AddFormTest(TestCase):
@@ -42,6 +43,31 @@ class AddFormTest(TestCase):
 
         new_link = form.save()
         self.assertTrue(new_link.is_external)
+
+    def test_add_form_with_user(self):
+        creator = User.objects.create_user(username="creator", password="pw")
+        form = AddLinkForm(
+            self.content_object,
+            creator,
+            data={"url": "http://www.example.com", "title": "Example"},
+        )
+        self.assertTrue(form.is_valid())
+
+        new_link = form.save()
+        self.assertEqual(new_link.user, creator)
+
+    def test_save_with_commit_false(self):
+        form = AddLinkForm(*self.initial_args, data={"url": "http://www.example.com", "title": "Example"})
+        self.assertTrue(form.is_valid())
+
+        new_link = form.save(commit=False)
+
+        self.assertIsNone(new_link.pk)
+        self.assertEqual(GenericLink.objects.count(), 0)
+
+        new_link.save()
+        self.assertEqual(GenericLink.objects.count(), 1)
+        self.assertEqual(new_link.content_object, self.content_object)
 
     def test_add_form_saves_description(self):
         form = AddLinkForm(
