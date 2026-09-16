@@ -4,6 +4,11 @@ from generic_links.models import GenericLink
 
 
 class AddLinkForm(forms.ModelForm):
+    # The model default is True, so unbound forms render the checkbox checked.
+    # Note: HTML checkboxes are absent from POST data when unchecked, so a
+    # submitted form without the checkbox saves is_external=False.
+    is_external = forms.BooleanField(initial=True, required=False)
+
     class Meta:
         model = GenericLink
         fields = ("title", "url", "description", "is_external")
@@ -13,13 +18,10 @@ class AddLinkForm(forms.ModelForm):
         self.user = user
         super().__init__(*args, **kwargs)
 
-    def save(self, *args, **kwargs):
-        self.instance = GenericLink.objects.create(
-            content_object=self.content_object,
-            url=self.cleaned_data["url"].strip(),
-            title=self.cleaned_data["title"],
-            user=self.user,
-            is_external=self.cleaned_data["is_external"],
-        )
-        self.instance.save()
-        return self.instance
+    def save(self, commit=True):
+        link = super().save(commit=False)
+        link.content_object = self.content_object
+        link.user = self.user
+        if commit:
+            link.save()
+        return link

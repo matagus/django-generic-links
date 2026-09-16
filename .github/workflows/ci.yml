@@ -23,6 +23,9 @@ jobs:
             python-version: "3.14"
           - django-version: "5.0"
             python-version: "3.14"
+          # Django < 5.2 is not compatible with Python 3.14
+          - django-version: "5.1"
+            python-version: "3.14"
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v7
