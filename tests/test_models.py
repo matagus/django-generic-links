@@ -20,6 +20,10 @@ class ModelTest(TestCase):
 
 
 class GenericRelationTest(TestCase):
+    def test_tagged_item_str(self):
+        item = TaggedItem.objects.create(name="item")
+        self.assertEqual(str(item), "item")
+
     def test_reverse_generic_relation(self):
         item = TaggedItem.objects.create(name="item")
         link = GenericLink.objects.create(title="Doc", url="https://docs.example.com", content_object=item)
