@@ -3,7 +3,7 @@ django-generic-links
 
 ![Python Compatibility](https://img.shields.io/badge/python-3.12%20%7C%203.13%20%7C%203.14-blue.svg)
 ![Django Compatibility](https://img.shields.io/badge/django-4.2%20|%205.0%20|%205.1%20|%205.2%20|%206.0-%2344B78B?labelColor=%23092E20)
-[![PyPi Version](https://img.shields.io/pypi/v/django-generic-links.svg)](https://pypi.python.org/pypi/django-generic-links)
+[![PyPi Version](https://img.shields.io/pypi/v/django-generic-links.svg)](https://pypi.org/project/django-generic-links)
 ![CI badge](https://github.com/matagus/django-generic-links/actions/workflows/ci.yml/badge.svg)
 [![codecov](https://codecov.io/gh/matagus/django-generic-links/graph/badge.svg?token=a64SxEDQk0)](https://codecov.io/gh/matagus/django-generic-links)
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
@@ -137,7 +137,7 @@ context and you want to get all the links for it:
 ```html
 {% load generic_links_tags %}
 
-<hl>{{ artist.name }}</hl>
+<h1>{{ artist.name }}</h1>
 <p>{{ artist.description }}</p>
 <h2>Links for {{ artist.name }}</h2>
 {% get_links_for artist as artist_links %}
