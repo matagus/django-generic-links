@@ -14,7 +14,7 @@ body:
   attributes:
     label: Django Version
     description: Which version of Django were you using?
-    placeholder: "6.0"
+    placeholder: "6.1"
   validations:
     required: false
 - type: input
@@ -22,7 +22,7 @@ body:
   attributes:
     label: Package Version
     description: Which version of this package were you using? If not the latest version, please check this issue has not since been resolved.
-    placeholder: 0.14.0
+    placeholder: 0.15.0
   validations:
     required: false
 - type: textarea
