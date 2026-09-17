@@ -11,6 +11,7 @@ license = "BSD-3-clause"
 authors = [
     { name = "Matias Agustin Mendez", email = "matagus@gmail.com" },
 ]
+requires-python = ">=3.12"
 keywords = [
     "generic links", "django", "links", "urls", "generic app",
 ]
