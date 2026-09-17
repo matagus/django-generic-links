@@ -59,8 +59,8 @@ hatch run test:cov
 **Available test environments:**
 
 - Python 3.12 with Django 4.2
-- Python 3.12-3.13 with Django 5.0
-- Python 3.12-3.14 with Django 5.1, 5.2, 6.0
+- Python 3.12-3.13 with Django 5.0, 5.1
+- Python 3.12-3.14 with Django 5.2, 6.0, 6.1
 
 View all environments: `hatch env show test`
 
