@@ -1,0 +1,17 @@
+{% extends "music_app/base.html" %}
+{% load generic_links_tags %}
+
+{% block content %}
+  <h1>Artists</h1>
+  <ul>
+    {% for artist in artists %}
+      {% get_links_for artist as artist_links %}
+      <li>
+        <a href="{% url 'music_app:artist_detail' artist.pk %}">{{ artist.name }}</a>
+        ({{ artist_links|length }} link{{ artist_links|length|pluralize }})
+      </li>
+    {% empty %}
+      <li>No artists yet. Run <code>hatch run project:create-demo-data</code> to load some.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

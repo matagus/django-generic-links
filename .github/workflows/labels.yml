@@ -7,6 +7,10 @@ on:
     paths:
       - ".github/**"
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   labels:
     runs-on: ubuntu-latest
@@ -15,8 +19,8 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v7
         with:
-          python-version: 3.x
-      - name: Install labels
-        run: pip install labels
-      - name: Sync config with Github
-        run: labels -u ${{ github.repository_owner }} -t ${{ secrets.GITHUB_TOKEN }} sync -f .github/labels.toml
+          python-version: "3.12"
+      - name: Upsert labels from .github/labels.toml
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python .github/sync_labels.py

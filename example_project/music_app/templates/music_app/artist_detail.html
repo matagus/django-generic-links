@@ -1,0 +1,41 @@
+{% extends "music_app/base.html" %}
+{% load generic_links_tags %}
+
+{% block title %}{{ artist.name }} &middot; django-generic-links example{% endblock %}
+
+{% block content %}
+  <h1>{{ artist.name }}</h1>
+  <p>{{ artist.bio }}</p>
+
+  <h2>Links for {{ artist.name }}</h2>
+  {% get_links_for artist as artist_links %}
+  <ul class="links">
+    {% for link in artist_links %}
+      <li>
+        <a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+        {% if link.is_external %}<span class="tag">external</span>{% else %}<span class="tag">internal</span>{% endif %}
+        {% if link.description %}&mdash; {{ link.description }}{% endif %}
+      </li>
+    {% empty %}
+      <li>This artist has no links yet. Add some through the <a href="/admin/">admin</a>.</li>
+    {% endfor %}
+  </ul>
+
+  <h3>External links only</h3>
+  {% get_links_for artist True as external_links %}
+  <ul class="links">
+    {% for link in external_links %}
+      <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <h2>Albums</h2>
+  <ul>
+    {% for album in artist.album_set.all %}
+      <li>
+        <a href="{% url 'music_app:album_detail' album.pk %}">{{ album.title }}</a>
+        {% if album.release_date %}({{ album.release_date }}){% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

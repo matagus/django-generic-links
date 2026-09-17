@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}django-generic-links example{% endblock %}</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 2rem auto; max-width: 46rem; color: #1b1b1b; }
+      h1 { font-size: 1.6rem; }
+      nav a { margin-right: 1rem; }
+      ul.links { padding-left: 1.2rem; }
+      .tag { font-size: .75rem; border: 1px solid #b6b6b6; border-radius: 999px; padding: .05rem .45rem; margin-left: .35rem; }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="{% url 'music_app:artist_list' %}">Artists</a>
+      <a href="/admin/">Admin</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+  </body>
+</html>

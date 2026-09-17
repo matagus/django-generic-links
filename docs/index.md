@@ -1,13 +1,13 @@
 # Getting started with django-generic-links
 
 ![Python Compatibility](https://img.shields.io/badge/python-3.12%20%7C%203.13%20%7C%203.14-blue.svg)
-![Django Compatibility](https://img.shields.io/badge/django-4.2%20|%205.0%20|%205.1%20|%205.2%20|%206.0-%2344B78B?labelColor=%23092E20)
+![Django Compatibility](https://img.shields.io/badge/django-4.2%20|%205.0%20|%205.1%20|%205.2%20|%206.0%20|%206.1-%2344B78B?labelColor=%23092E20)
 [![PyPi Version](https://img.shields.io/pypi/v/django-generic-links.svg)](https://pypi.org/project/django-generic-links)
 ![CI badge](https://github.com/matagus/django-generic-links/actions/workflows/ci.yml/badge.svg)
 [![codecov](https://codecov.io/gh/matagus/django-generic-links/graph/badge.svg?token=a64SxEDQk0)](https://codecov.io/gh/matagus/django-generic-links)
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
-Simple and generic application for Django projects to attach and handle links for any object. Compatible with Django 4.2 to 6.0 and Python 3.12 to 3.14.
+Simple and generic application for Django projects to attach and handle links for any object. Compatible with Django 4.2 to 6.1 and Python 3.12 to 3.14.
 
 ## Features
 
@@ -140,6 +140,9 @@ context and you want to get all the links for it:
 {% endfor %}
 </ul>
 ```
+
+All of the above is wired up in a runnable form under `example_project/`: artist and album pages that use
+this tag, plus the inline admin. See the [contributing guide](contributing.md#running-the-example-project) to start it.
 
 ## Running Tests
 

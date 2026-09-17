@@ -29,11 +29,19 @@ The example project demonstrates how to integrate django-generic-links with a mu
 # Run migrations
 hatch run project:migrate
 
+# Load demo artists, albums and generic links
+hatch run project:create-demo-data
+
 # Start the development server
 hatch run project:server
 ```
 
-Visit http://127.0.0.1:8000/admin/ to test the app with a populated admin.
+Then browse:
+
+- http://127.0.0.1:8000/ - artist list and detail pages that render links with the `get_links_for` template tag
+- http://127.0.0.1:8000/admin/ - admin with `GenericLinkStackedInline` on Artist and Album (the demo data creates an `admin`/`admin` superuser)
+
+Running without Hatch works too: `pip install -r example_project/requirements.txt` and then use `python example_project/manage.py <command>`.
 
 ### Interactive Shell
 
@@ -59,8 +67,8 @@ hatch run test:cov
 **Available test environments:**
 
 - Python 3.12 with Django 4.2
-- Python 3.12-3.13 with Django 5.0
-- Python 3.12-3.14 with Django 5.1, 5.2, 6.0
+- Python 3.12-3.13 with Django 5.0, 5.1
+- Python 3.12-3.14 with Django 5.2, 6.0, 6.1
 
 View all environments: `hatch env show test`
 

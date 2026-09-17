@@ -47,4 +47,6 @@ repos:
     rev: v3.21.2
     hooks:
     - id: pyupgrade
-      args: [--py314]
+      # Keep in sync with project.requires-python: pyupgrade --py314 assumes PEP 649
+      # deferred annotations, which lets it strip quotes that still evaluate on 3.12/3.13.
+      args: [--py312]

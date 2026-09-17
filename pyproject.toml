@@ -11,6 +11,7 @@ license = "BSD-3-clause"
 authors = [
     { name = "Matias Agustin Mendez", email = "matagus@gmail.com" },
 ]
+requires-python = ">=3.12"
 keywords = [
     "generic links", "django", "links", "urls", "generic app",
 ]
@@ -24,6 +25,7 @@ classifiers = [
     "Framework :: Django :: 5.1",
     "Framework :: Django :: 5.2",
     "Framework :: Django :: 6.0",
+    "Framework :: Django :: 6.1",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: BSD License",
     "Natural Language :: English",
@@ -72,7 +74,7 @@ dependencies = [
 ]
 
 [tool.hatch.envs.default.scripts]
-typecheck = "mypy generic_links"
+typecheck = "mypy --disallow-untyped-defs --disallow-incomplete-defs generic_links"
 
 [tool.mypy]
 python_version = "3.12"
@@ -96,6 +98,7 @@ server = "python example_project/manage.py runserver_plus"
 shell = "python example_project/manage.py shell_plus"
 migrate = "python example_project/manage.py migrate"
 makemigrations = "python example_project/manage.py makemigrations"
+create-demo-data = "python example_project/manage.py create_demo_data"
 
 # Test environment
 [[tool.hatch.envs.test.matrix]]
@@ -116,6 +119,10 @@ python = ["3.12", "3.13", "3.14"]
 
 [[tool.hatch.envs.test.matrix]]
 django = ["6.0"]
+python = ["3.12", "3.13", "3.14"]
+
+[[tool.hatch.envs.test.matrix]]
+django = ["6.1"]
 python = ["3.12", "3.13", "3.14"]
 
 [tool.hatch.envs.test]
