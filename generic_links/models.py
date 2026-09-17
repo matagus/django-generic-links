@@ -35,5 +35,5 @@ class GenericLink(models.Model):
             models.Index(fields=["content_type", "object_id"]),
         ]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.title} :: {self.url}"

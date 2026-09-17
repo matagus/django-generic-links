@@ -73,7 +73,7 @@ dependencies = [
 ]
 
 [tool.hatch.envs.default.scripts]
-typecheck = "mypy generic_links"
+typecheck = "mypy --disallow-untyped-defs --disallow-incomplete-defs generic_links"
 
 [tool.mypy]
 python_version = "3.12"
