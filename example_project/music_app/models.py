@@ -22,6 +22,10 @@ class Album(models.Model):
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
     release_date = models.DateField(null=True, blank=True)
 
+    # AlbumAdmin manages links through GenericLinkStackedInline, so the reverse generic
+    # relation is needed here as well, just like on Artist.
+    generic_links = GenericRelation("generic_links.GenericLink")
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

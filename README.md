@@ -148,6 +148,9 @@ context and you want to get all the links for it:
 </ul>
 ```
 
+All of the above is wired up in a runnable form under `example_project/`: artist and album pages that use
+this tag, plus the inline admin. See [Contributing.md](CONTRIBUTING.md#running-the-example-project) to start it.
+
 
 Contributing
 ============

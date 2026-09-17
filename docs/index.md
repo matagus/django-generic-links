@@ -141,6 +141,9 @@ context and you want to get all the links for it:
 </ul>
 ```
 
+All of the above is wired up in a runnable form under `example_project/`: artist and album pages that use
+this tag, plus the inline admin. See the [contributing guide](contributing.md#running-the-example-project) to start it.
+
 ## Running Tests
 
 **Prerequisites:** Install Hatch if not already installed: `pip install hatch`

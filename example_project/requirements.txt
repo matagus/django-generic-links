@@ -1,2 +1,3 @@
 Django
+django-extensions
 django-generic-links

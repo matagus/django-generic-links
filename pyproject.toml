@@ -98,6 +98,7 @@ server = "python example_project/manage.py runserver_plus"
 shell = "python example_project/manage.py shell_plus"
 migrate = "python example_project/manage.py migrate"
 makemigrations = "python example_project/manage.py makemigrations"
+create-demo-data = "python example_project/manage.py create_demo_data"
 
 # Test environment
 [[tool.hatch.envs.test.matrix]]
