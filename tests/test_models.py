@@ -1,8 +1,10 @@
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
+from django.core.validators import MaxLengthValidator
 from django.db import models
 from django.test import TestCase
 
-from generic_links.models import GenericLink
+from generic_links.models import DESCRIPTION_MAX_LENGTH, GenericLink
 from generic_links.utils import get_links_for
 from tests.models import TaggedItem
 
@@ -79,3 +81,44 @@ class ObjectIdFieldTest(TestCase):
 
         self.assertEqual(link.object_id, self.BIG_PK)
         self.assertEqual(list(get_links_for(item)), [link])
+
+
+class DescriptionMaxLengthTest(TestCase):
+    """
+    ``description`` declares ``max_length`` on a ``TextField``. Unlike
+    ``CharField``, a ``TextField`` does not install a ``MaxLengthValidator`` on
+    the model, so the limit has to be declared explicitly or model-level
+    validation silently accepts anything.
+    """
+
+    def setUp(self):
+        self.item = TaggedItem.objects.create(name="item")
+
+    def build(self, description: str) -> GenericLink:
+        return GenericLink(
+            title="Doc",
+            url="https://docs.example.com",
+            description=description,
+            content_object=self.item,
+        )
+
+    def test_full_clean_accepts_a_description_at_the_limit(self):
+        link = self.build("x" * DESCRIPTION_MAX_LENGTH)
+
+        link.full_clean()  # must not raise
+
+    def test_full_clean_rejects_a_description_over_the_limit(self):
+        link = self.build("x" * (DESCRIPTION_MAX_LENGTH + 1))
+
+        with self.assertRaises(ValidationError) as ctx:
+            link.full_clean()
+
+        self.assertIn("description", ctx.exception.message_dict)
+
+    def test_model_field_declares_a_max_length_validator(self):
+        field = GenericLink._meta.get_field("description")
+
+        self.assertTrue(
+            any(isinstance(v, MaxLengthValidator) for v in field.validators),
+            f"expected a MaxLengthValidator on description, got {field.validators}",
+        )
