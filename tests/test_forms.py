@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 
 from generic_links.forms import AddLinkForm
-from generic_links.models import GenericLink
+from generic_links.models import DESCRIPTION_MAX_LENGTH, GenericLink
 
 
 class AddFormTest(TestCase):
@@ -85,3 +85,28 @@ class AddFormTest(TestCase):
 
         new_link.refresh_from_db()
         self.assertEqual(new_link.description, "An example description")
+
+    def test_add_form_rejects_an_over_long_description(self):
+        # TextField.formfield() already carries max_length, so the ModelForm has
+        # always rejected this; the test pins the behaviour against regressions.
+        form = AddLinkForm(
+            *self.initial_args,
+            data={
+                "url": "http://www.example.com",
+                "title": "Example",
+                "description": "x" * (DESCRIPTION_MAX_LENGTH + 1),
+            },
+        )
+        self.assertFalse(form.is_valid())
+        self.assertIn("description", form.errors)
+
+    def test_add_form_accepts_a_description_at_the_limit(self):
+        form = AddLinkForm(
+            *self.initial_args,
+            data={
+                "url": "http://www.example.com",
+                "title": "Example",
+                "description": "x" * DESCRIPTION_MAX_LENGTH,
+            },
+        )
+        self.assertTrue(form.is_valid())

@@ -23,3 +23,4 @@ class GenericLinkAdmin(admin.ModelAdmin):
         "created_at",
     )
     raw_id_fields = ("user",)
+    list_select_related = ("user",)
